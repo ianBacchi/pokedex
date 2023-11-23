@@ -3,7 +3,7 @@
 #include <string.h>
 
 
-typedef struct {
+typedef struct {//strcut para ler cada atributo do pokemon no arquivo csv
     int numero;
     char nome[21];
     char tipo1[11]; 
@@ -23,7 +23,7 @@ typedef struct {
     int taxa_captura;
 } Pokedex;
 
-void recebeArquivoPokedex(Pokedex* dex){ 
+void recebeArquivoPokedex(Pokedex* dex){ //funçao para ler o arquivo csv
   char *aux;
   char linha[500];
   int i = 0; 
@@ -109,18 +109,18 @@ fclose(arq);
 
 int main(){
 
-    int menu;
+    int menu;//variavel para ver qual sera a opçao do menu inicial
     int cadastro;
-    int i = 722;
-    int pokesadd;
+    int i = 722;//para dar atribuir novos pokemon
+    int pokesadd;//para fazer a conta dos pokemons ainda poderao ser add
     char sair[5];
 
 
     Pokedex dex[731];  // Vetor para os pokémons
 
-     recebeArquivoPokedex(dex);
+     recebeArquivoPokedex(dex);//chama a funçao para ler o arquivo csv
 
-     printf("Digite uma opcao\n 1-novo jogo \n 2-sair\n");
+     printf("Digite uma opcao\n 1-novo jogo \n 2-sair\n");//menu inicial
      scanf("%d",&menu);
 
     switch (menu)
@@ -212,6 +212,7 @@ int main(){
 
             printf("se }deseja sair digite 'sair'" );
             fgets(sair, 5 , stdin);
+            i++;
                 
             } while (strcmp(sair, "sair") != 0);
             
